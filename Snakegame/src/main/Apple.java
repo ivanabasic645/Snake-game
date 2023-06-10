@@ -22,8 +22,8 @@ public class Apple extends TimerTask {
 	}
 	
 	public Apple() {
-		posx = 25 * new Random().nextInt(20);
-		posy = 25 * new Random().nextInt(20);
+		posx = 25 * new Random().nextInt(19);
+		posy = 25 * new Random().nextInt(19);
 	}
 
 	@Override
