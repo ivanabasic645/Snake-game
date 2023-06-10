@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author ivana
- *
- */
-module Snakegame {
-}

@@ -17,19 +17,19 @@ public class Rectangle {
 		return this.posx == r1.getPosx() && this.posy == r1.getPosy();
 	}
 
-	private int getPosy() {
+	public int getPosy() {
 		return posy;
 	}
 
-	private int getPosx() {
+	public int getPosx() {
 		return posx;
 	}
 	
-	private void setPosx(int increment) {
+	public void setPosx(int increment) {
 		this.posx += increment;
 	}
 	
-	private void setPosy(int increment) {
+	public void setPosy(int increment) {
 		this.posy += increment;
 	}
 

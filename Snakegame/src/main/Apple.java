@@ -9,11 +9,11 @@ public class Apple extends TimerTask {
 	private int posy;
 	private Snake snake;
 	
-	public int getX() {
+	public int getPosx() {
 		return posx;
 	}
 	
-	public int getY() {
+	public int getPosy() {
 		return posy;
 	}
 	
