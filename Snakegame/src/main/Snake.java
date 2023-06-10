@@ -26,15 +26,9 @@ public class Snake extends JPanel {
 		this.window = window;
 
 		// creating body of the snake, 3 parts
-		this.body = new ArrayList<>();
-		body.add(new Rectangle(start, start));
-		Rectangle last = this.body.get(0);
-		body.add(new Rectangle(last.getPosx() - rec_width, last.getPosy()));
-		Rectangle last_2 = this.body.get(1);
-		body.add(new Rectangle(last_2.getPosx() - rec_width, last_2.getPosy()));
-
-		this.direction = "right";
+		newSnake();
 	}
+
 
 	public void setDirection(String direction) {
 		this.direction = direction;
@@ -75,10 +69,8 @@ public class Snake extends JPanel {
 		}
 
 		// collision with window
-		if (r3.getPosx() == this.window.getWidth() - rec_width  ||
-			r3.getPosy() == this.window.getHeight() - rec_height ||
-			r3.getPosx() == -rec_width ||
-			r3.getPosy() == -rec_height) {
+		if (r3.getPosx() == this.window.getWidth() - rec_width || r3.getPosy() == this.window.getHeight() - rec_height
+				|| r3.getPosx() == -rec_width || r3.getPosy() == -rec_height) {
 			gameOver();
 		}
 
@@ -94,13 +86,11 @@ public class Snake extends JPanel {
 
 	private void gameOver() {
 		System.out.println("You lose!");
-		this.window.setVisible(false);
 
 		JFrame parent = new JFrame("Game over!");
 		JOptionPane.showMessageDialog(parent, "Your score: " + this.body.size());
 
-		this.window.dispatchEvent(new WindowEvent(this.window, WindowEvent.WINDOW_CLOSING));
-		System.exit(0);
+		this.window.resetGame();
 	}
 
 	public void moveSnake() {
@@ -134,10 +124,14 @@ public class Snake extends JPanel {
 
 		this.body = newLst;
 		checkColission();
+
 	}
 
 	private void drawSnake(Graphics g) {
-		moveSnake();
+
+		if (!this.window.getPaused()) {
+			moveSnake();
+		}
 
 		// draw moved snake
 		Graphics2D g2d = (Graphics2D) g;
@@ -168,5 +162,21 @@ public class Snake extends JPanel {
 		super.paintComponent(g);
 		setBackground(c);
 		drawSnake(g);
+	}
+
+	public void newSnake() {
+		this.body = new ArrayList<>();
+		body.add(new Rectangle(start, start));
+		Rectangle last = this.body.get(0);
+		body.add(new Rectangle(last.getPosx() - rec_width, last.getPosy()));
+		Rectangle last_2 = this.body.get(1);
+		body.add(new Rectangle(last_2.getPosx() - rec_width, last_2.getPosy()));
+
+		this.direction = "right";
+
+	}
+	
+	public int getScore() {
+		return body.size();
 	}
 }

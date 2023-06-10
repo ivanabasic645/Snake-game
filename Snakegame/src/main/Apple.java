@@ -3,6 +3,9 @@ package main;
 import java.util.Random;
 import java.util.TimerTask;
 
+import static main.Rectangle.rec_height;
+import static main.Rectangle.rec_width;
+
 public class Apple extends TimerTask {
 	
 	private int posx;
@@ -22,8 +25,8 @@ public class Apple extends TimerTask {
 	}
 	
 	public Apple() {
-		posx = 25 * new Random().nextInt(19);
-		posy = 25 * new Random().nextInt(19);
+		posx = rec_width * new Random().nextInt(18);
+		posy = rec_height * new Random().nextInt(18);
 	}
 
 	@Override
