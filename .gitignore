@@ -1,5 +1,5 @@
-/.metadata/
+.metadata/
+Snakegame/.settings/
 Snakegame/bin/
-*.settings
-*.classpath
-*.project
+Snakegame/.classpath
+Snakegame/.project
