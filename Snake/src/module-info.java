@@ -1,9 +1,4 @@
-/**
- * 
- */
-/**
- * @author ivana
- *
- */
+
 module Snake {
+	
 }

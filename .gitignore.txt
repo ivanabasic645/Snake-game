@@ -1,0 +1,2 @@
+Snake\bin
+Snake\.settings
