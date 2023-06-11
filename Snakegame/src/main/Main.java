@@ -32,7 +32,6 @@ public class Main extends JFrame implements KeyListener, ActionListener {
 
         // window creation & drawing
         populateWindow();
-        addListeners();
         setTitle("Snake Game");
         setSize(525, 525);
         this.addKeyListener(this);
@@ -42,22 +41,6 @@ public class Main extends JFrame implements KeyListener, ActionListener {
         requestFocus();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-
-
-    private void addListeners() {
-    	interactionBoard.pause.addActionListener((e) -> {
-			//pause snake
-			requestFocus();
-			togglePause();
-		});
-		
-    	interactionBoard.reset.addActionListener((e) -> {
-			//reset the game
-			requestFocus();
-			resetGame();
-			paused = false;
-		});
-	}
 
 
 	private void populateWindow() {
@@ -100,13 +83,14 @@ public class Main extends JFrame implements KeyListener, ActionListener {
         
         if (c == 32) {
         	togglePause();
+        	this.interactionBoard.updatePauseButton();
         }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         // redraw the screen
-    	this.interactionBoard.score.setText(Integer.toString(snake.getScore()));
+    	this.interactionBoard.updateScore();
     	repaint();
     }
     
